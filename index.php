@@ -12,7 +12,9 @@ use Services\ORMService;
 
 spl_autoload_register(function ($className) {
     $className = str_replace("\\", DIRECTORY_SEPARATOR, $className);
+
     $className = preg_replace('/^App/', '', $className);
+
     require_once __DIR__ . DIRECTORY_SEPARATOR . 'App' . DIRECTORY_SEPARATOR . $className . '.php';
 });
 
